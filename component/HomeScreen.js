@@ -1,43 +1,43 @@
 import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
-import HomeScreen from './component/HomeScreen';
-import SignIn from './component/SignIn';
-import SignUp from './component/SignUp';
-
-
 import {
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  TextInput,
-  Button,
-  TouchableOpacity,
-  Pressable,
-} from "react-native";
+    StyleSheet,
+    Text,
+    View,
+    Image,
+    TextInput,
+    Button,
+    TouchableOpacity,
+    Pressable,
+  } from "react-native";
+  export default function HomeScreen ({navigation}){
+return (
 
- import {NavigationContainer} from '@react-navigation/native';
- import {createNativeStackNavigator} from '@react-navigation/native-stack';
- const Stack = createNativeStackNavigator();
-export default function App() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [count, setCount] = useState(0);
+<View style={styles.container}>
+<Image style={styles.image} source={require("../assets/home.png")}></Image>  
 
-  // const onPress = () => setCount(prevCount => prevCount + 1);
 
-  return (
-    <NavigationContainer>
-<Stack.Navigator>
-<Stack.Screen name= "Home" component={HomeScreen} />
-<Stack.Screen name= "SignIn" component={SignIn} />
-<Stack.Screen name= "SignUp" component={SignUp} />
+    <View > 
 
-</Stack.Navigator>
-</NavigationContainer>
-  );
-}
-const styles = StyleSheet.create({
+<TouchableOpacity  onPress={()=>navigation.navigate("SignIn")} style={styles.loginBtn}>
+      <Text style={styles.Text}>SignIn            </Text> 
+    </TouchableOpacity>
+   
+   
+    
+    <TouchableOpacity  onPress={()=>navigation.navigate("SignUp")} style={styles.loginBtn}>
+      <Text style={styles.Text}>SignUp          </Text> 
+    </TouchableOpacity> 
+   
+    
+    </View> 
+    </View>
+)
+
+
+
+  }
+ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
@@ -90,5 +90,8 @@ const styles = StyleSheet.create({
   Text:{
     fontSize: 17,
     fontWeight: 'bold',
+    marginLeft: 20,
+    
+
   },
 });
